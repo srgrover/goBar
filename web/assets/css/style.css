@@ -1,0 +1,228 @@
+/* Animation.css*/
+@import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
+
+/* REGLAS SOBREESCRITAS BOOTSTRAP*/
+.container{
+	position: relative;
+	width: 100%;
+	margin: 50px auto 0 auto !important;
+}
+
+a.navbar-brand {
+	background-color: #1bb2a2;
+}
+
+.navbar-brand>img {
+	display: block;
+	height: 40px !important;
+}
+
+.navbar-brand {
+	float: left;
+	height: 50px;
+	padding: 6px 10px;
+	font-size: 18px;
+	line-height: 20px;
+}
+
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+	color: #5e5e5e;
+	background-color: #0aa191;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+	color: #1bb2a2;
+}
+
+/* PÁGINA PRINCIPAL */
+.col-item {
+	border: 1px solid #E1E1E1;
+	background: #FFF;
+	margin-bottom:12px;
+}
+.col-item .options {
+	position:absolute;
+	top:6px;
+	right:22px;
+}
+.col-item .photo {
+	overflow: hidden;
+}
+.col-item .photo .options {
+	display:none;
+}
+.col-item .photo img {
+	margin: 0 auto;
+	width: 100%;
+}
+
+.col-item .options-cart {
+	position:absolute;
+	left:22px;
+	top:6px;
+	display:none;
+}
+.col-item .photo:hover .options,
+.col-item .photo:hover .options-cart {
+	display:block;
+	-webkit-animation: fadeIn .5s ease;
+	-moz-animation: fadeIn .5s ease;
+	-ms-animation: fadeIn .5s ease;
+	-o-animation: fadeIn .5s ease;
+	animation: fadeIn .5s ease;
+}
+.col-item .options-cart-round {
+	position:absolute;
+	left:42%;
+	top:22%;
+	display:none;
+}
+.col-item .options-cart-round button {
+	border-radius: 50%;
+	padding:14px 16px;
+
+}
+.col-item .options-cart-round button .fa {
+	font-size:22px;
+}
+.col-item .photo:hover .options-cart-round {
+	display:block;
+	-webkit-animation: fadeInDown .5s ease;
+	-moz-animation: fadeInDown .5s ease;
+	-ms-animation: fadeInDown .5s ease;
+	-o-animation: fadeInDown .5s ease;
+	animation: fadeInDown .5s ease;
+}
+.col-item .info {
+	padding: 10px;
+	margin-top: 1px;
+}
+.col-item .price-details {
+	width: 100%;
+	margin-top: 5px;
+}
+.col-item .price-details h1 {
+	font-size: 14px;
+	line-height: 20px;
+	margin: 0;
+	float:left;
+}
+.col-item .price-details .details {
+	margin-bottom: 0px;
+	font-size:12px;
+}
+.col-item .price-details span {
+	float:right;
+}
+.col-item .price-details .price-new {
+	font-size:16px;
+}
+.col-item .price-details .price-old {
+	font-size:18px;
+	text-decoration:line-through;
+}
+.col-item .separator {
+	border-top: 1px solid #E1E1E1;
+}
+
+.col-item .clear-left {
+	clear: left;
+}
+.col-item .separator a {
+	text-decoration:none;
+}
+.col-item .separator p {
+	margin-bottom: 0;
+	margin-top: 6px;
+	text-align: center;
+}
+
+.col-item .separator p i {
+	margin-right: 5px;
+}
+.col-item .btn-add {
+	width: 60%;
+	float: left;
+}
+.col-item .btn-add a {
+	display:inline-block !important;
+}
+.col-item .btn-add {
+	border-right: 1px solid #E1E1E1;
+}
+.col-item .btn-details {
+	width: 40%;
+	float: left;
+	padding-left: 10px;
+}
+.col-item .btn-details a {
+	display:inline-block !important;
+}
+.col-item .btn-details a:first-child {
+	margin-right:12px;
+}
+
+/* BUSQUEDA */
+.box-busqueda{
+	background-color: #00BFA5;
+	background: url(http://lichfieldsfurniture.co.uk/wp-content/uploads/2016/10/Cafe-background-e1477156168433.jpg) center center;
+	background-size: cover;
+	height: 150px;
+}
+
+.box-home{
+	margin-top: 20px !important;
+}
+
+.box-home .row{
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.box-busqueda .row{
+	margin-top: 50px;
+}
+
+.flipkart-navbar-input {
+	padding: 11px 16px;
+	border-radius: 2px 0 0 2px;
+	border: 0 none;
+	outline: 0 none;
+	font-size: 15px;
+}
+
+.flipkart-navbar-button {
+	background-color: #ffe11b;
+	border: 1px solid #ffe11b;
+	border-radius: 0 2px 2px 0;
+	color: #565656;
+	padding: 10px 0;
+	height: 43px;
+	cursor: pointer;
+}
+
+.smallsearch{
+	margin-left: 15px;
+	margin-top: 15px;
+}
+
+@media screen and (min-width: 768px) {
+	.smallsearch{
+		margin: 0px;
+	}
+}
+
+/*Sidenav*/
+
+.sidenav a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;
+	display: block;
+	transition: 0.3s
+}
+
+@media screen and (max-height: 450px) {
+	.sidenav a {font-size: 18px;}
+}

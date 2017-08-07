@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% set ruta = app.request.get('_route') %}
+    {% block navbar %}
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="{{ asset('assets/images/pub_logo_white.png') }}" alt="Logo goBar">
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li {% if ruta == "inicio" %} class="active" {% endif %}>
+                            <a href="#">
+                                <i class="fa fa-home"></i>
+                                <span class="sr-only">(current)</span>
+                            </a></li>
+                        <li>
+                            <a href="#">Establecimientos</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-sign-in" style="color: #1bb2a2;"></i>
+                                Entrar
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-arrow-circle-up" style="color: #1bb2a2;"></i>
+                                Registrarse
+                            </a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div class="clearfix"></div>
+    {% endblock %}
+    <div class="container-fluid" style="padding: 0;">
+        {% if app.session.flashBag.has('estado') %}
+            {% set mensajes = app.session.flashBag.get('estado') %}
+            {% for mensaje in mensajes %}
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                    {{ mensaje }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if app.session.flashBag.has('error') %}
+            {% set mensajes = app.session.flashBag.get('error') %}
+            {% for mensaje in mensajes %}
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                    {{ mensaje }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <div class="clearfix"></div>
+        {% block content %}{% endblock %}
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <div class="footer">
+        <div class="container">
+            <b class="copyright">&copy; 2014 Edmin - EGrappler.com </b>All rights reserved.
+        </div>
+    </div>
+{% endblock %}

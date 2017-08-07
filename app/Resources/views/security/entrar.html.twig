@@ -1,0 +1,94 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+
+    <!-- Mixins-->
+    <!-- Pen Title-->
+
+    <div class="container">
+        <div class="card"></div>
+        <div class="card">
+            <h1 class="title">Entrar</h1>
+            <form>
+                <div class="input-container">
+                    <input type="#{type}" id="#{label}" required="required"/>
+                    <label for="#{label}">Correo electrónico</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input type="#{type}" id="#{label}" required="required"/>
+                    <label for="#{label}">Contraseña</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="button-container">
+                    <button>
+                        <span>
+                            <i class="fa fa-sign-in"></i>
+                            Entrar
+                        </span>
+                    </button>
+                </div>
+                <div class="footer"><a href="#">
+                        <i class="fa fa-lock"></i>
+                        ¿Olvidaste tu contraseña?
+                    </a></div>
+            </form>
+        </div>
+        <div class="card alt">
+            <div class="toggle"></div>
+            <h1 class="title">Registro
+                <div class="close"></div>
+            </h1>
+            
+            <div class="button-container">
+                <button>
+                    <span>
+                        Registra tu BAR o Cafeteria AQUÍ
+                    </span>
+                </button>
+            </div>
+            <div style="height: 265px;">
+                
+            </div>
+            <!--<form>
+                <div class="input-container">
+                    <input type="#{type}" id="#{label}" required="required"/>
+                    <label for="#{label}">Username</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input type="#{type}" id="#{label}" required="required"/>
+                    <label for="#{label}">Password</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="input-container">
+                    <input type="#{type}" id="#{label}" required="required"/>
+                    <label for="#{label}">Repeat Password</label>
+                    <div class="bar"></div>
+                </div>
+                <div class="button-container">
+                    <button><span>Next</span></button>
+                </div>
+            </form>-->
+        </div>
+    </div>
+    <!-- Portfolio<a id="portfolio" href="http://andytran.me/" title="View my portfolio!"><i class="fa fa-link"></i></a>
+         CodePen <a id="codepen" href="https://codepen.io/andytran/" title="Follow me!"><i class="fa fa-codepen"></i></a>-->
+    {% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/scripts/js/login.js') }}" type="text/javascript"></script>
+    <script>
+        $('.toggle').on('click', function () {
+            $('.container').stop().addClass('active');
+        });
+
+        $('.close').on('click', function () {
+            $('.container').stop().removeClass('active');
+        });
+    </script>
+{% endblock %}
