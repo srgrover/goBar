@@ -127,20 +127,20 @@ class Usuario implements UserInterface, \Serializable {
      * )
      */
     protected $pais;
-    /**
-     * @ORM\Column(type="string", length=9, nullable=false)
-     * @Assert\Length(
-     *     min = 9,
-     *     max = 9,
-     *     exactMessage = "El número de contacto debe tener 9 dígitos"
-     * )
-     * @Assert\NotBlank(
-     *     message = "El número de contacto no puede estar vacío"
-     * )
-     *
-     * @var string
-     */
-    protected $telefono;
+//    /**
+//     * @ORM\Column(type="string", length=9, nullable=false)
+//     * @Assert\Length(
+//     *     min = 9,
+//     *     max = 9,
+//     *     exactMessage = "El número de contacto debe tener 9 dígitos"
+//     * )
+//     * @Assert\NotBlank(
+//     *     message = "El número de contacto no puede estar vacío"
+//     * )
+//     *
+//     * @var string
+//     */
+//    protected $telefono;
     /**
      * @ORM\Column(type="string", nullable=true)
      *
@@ -393,20 +393,20 @@ class Usuario implements UserInterface, \Serializable {
     {
         $this->pais = $pais;
     }
-    /**
-     * @return string
-     */
-    public function getTelefono()
-    {
-        return $this->telefono;
-    }
-    /**
-     * @param string $telefono
-     */
-    public function setTelefono($telefono)
-    {
-        $this->telefono = $telefono;
-    }
+//    /**
+//     * @return string
+//     */
+//    public function getTelefono()
+//    {
+//        return $this->telefono;
+//    }
+//    /**
+//     * @param string $telefono
+//     */
+//    public function setTelefono($telefono)
+//    {
+//        $this->telefono = $telefono;
+//    }
     /**
      * @return string
      */
