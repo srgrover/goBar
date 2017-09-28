@@ -92,10 +92,7 @@ class Usuario implements UserInterface, \Serializable {
      */
     protected $fechaNacimiento;
     /**
-     * @ORM\Column(type="string", nullable=false)
-     * @Assert\NotBlank(
-     *     message = "La ciudad no puede estar vacía"
-     * )
+     * @ORM\Column(type="string", nullable=true)
      * @Assert\Regex(
      *     pattern="/\d/",
      *     match=false,
@@ -238,20 +235,6 @@ class Usuario implements UserInterface, \Serializable {
     public function setAdmin($admin)
     {
         $this->admin = $admin;
-    }
-    /**
-     * @return string
-     */
-    public function getNick()
-    {
-        return $this->nick;
-    }
-    /**
-     * @param string $nick
-     */
-    public function setNick($nick)
-    {
-        $this->nick = $nick;
     }
     /**
      * @return string

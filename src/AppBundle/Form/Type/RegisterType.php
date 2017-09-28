@@ -22,27 +22,11 @@ class RegisterType extends AbstractType
                 'required' => true
             ])
             ->add('email', null, [
-                'label' => 'NIE',
-                'required' => true
-            ])
-            ->add('password', PasswordType::class, [
-                'label' => 'Contraseña',
+                'label' => 'Correo electrónico',
                 'required' => true
             ])
             ->add('fechaNacimiento', null, [
                 'label' => 'Nacimiento',
-                'required' => true
-            ])
-            ->add('ciudad', null, [
-                'label' => 'Ciudad',
-                'required' => true
-            ])
-            ->add('provincia', null, [
-                'label' => 'Provincia',
-                'required' => true
-            ])
-            ->add('pais', null, [
-                'label' => 'País',
                 'required' => true
             ]);
     }

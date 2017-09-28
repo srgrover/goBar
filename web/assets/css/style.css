@@ -8,8 +8,12 @@
 	margin: 50px auto 0 auto !important;
 }
 
-a.navbar-brand {
-	background-color: #1bb2a2;
+.navbar-brand {
+	background-color: transparent;
+}
+
+a.navbar-brand:hover {
+	background-color: transparent !important;
 }
 
 .navbar-brand>img {
@@ -30,8 +34,28 @@ a.navbar-brand {
 	background-color: #0aa191;
 }
 
+.navbar-default {
+	color: #FFFFFF;
+	background-color: #00BCD4;
+	border-bottom: 0;
+}
+
+.navbar-default .navbar-nav>.open>a {
+	color: #FFFFFF !important;
+	background-color: #009AB2 !important;
+}
+
+.activado {
+	color: #FFFFFF;
+	background-color: #009AB2;
+}
+
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
 	color: #1bb2a2;
+}
+
+.navbar-default .navbar-nav>li>a{
+	color: #FFFFFF;
 }
 
 /* PÁGINA PRINCIPAL */
@@ -221,6 +245,33 @@ a.navbar-brand {
 	color: #818181;
 	display: block;
 	transition: 0.3s
+}
+
+
+/*GENERALES*/
+
+.mt10{
+	margin-top: 10px;
+}
+
+.mt20{
+	margin-top: 20px;
+}
+
+.mt30{
+	margin-top: 30px;
+}
+
+.mt40{
+	margin-top: 40px;
+}
+
+.mt50{
+	margin-top: 50px;
+}
+
+.mt60{
+	margin-top: 60px;
 }
 
 @media screen and (max-height: 450px) {

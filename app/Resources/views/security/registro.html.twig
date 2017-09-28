@@ -4,23 +4,95 @@
     <link rel="stylesheet" href="{{ asset('assets/css/form-register.css') }}">
 {% endblock %}
 
+{% block navbar%}
+{% endblock %}
+
 {% block content %}
-    {{ form_start(formulario, {'enctype':'multipart/form-data'}) }}
-    {{ form_widget(formulario) }}
-    <div class="col-lg-6 col-sm-12"></div>
-    <div class="col-lg-6 col-sm-12">
-        {#<a href="{{ path('perfil_usuario') }}" class="btn btn-primary">#}
-            {#<i class="fa fa-long-arrow-left"></i>#}
-            {#Volver#}
-        {#</a>#}
-        <button class="btn btn-success">
-            <i class="fa fa-save"></i>
-            Registrarse
-        </button>
+    <div class="signup__container">
+        <div class="container__child signup__thumbnail">
+            <div class="thumbnail__logo">
+                <h1 class="logo__text">
+                    <img src="{{ asset('assets/images/pub_logo_white.png') }}" alt="" height="30px">
+                    Find<strong>BAR</strong>
+                </h1>
+            </div>
+            <div class="thumbnail__content text-center">
+                <h1 class="heading--primary">Bienvenido a Find<strong>BAR</strong></h1>
+                <h4 class="heading--secondary">¿Quieres unirte a nuestra aplicación?</h4>
+            </div>
+
+            <div class="thumbnail__content text-center">
+                <h6 class="heading--primary">¿Ya tienes una cuenta? <a href="#" class="btn btn-link">Inicia sesión</a></h6>
+
+            </div>
+
+            <div class="thumbnail__links">
+                <ul class="list-inline m-b-0 text-center">
+                    <li>
+                        <a href="http://alexdevero.com/" target="_blank">
+                            Inicio
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.behance.net/alexdevero" target="_blank">
+                            Sobre nosotros
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/alexdevero" target="_blank">
+                            Contacto
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/alexdevero" target="_blank">
+                            Uso
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="signup__overlay"></div>
+        </div>
+        <div class="container__child signup__form">
+                {{ form_start(formulario, {'enctype':'multipart/form-data'}) }}
+                <h1 class="logo__text__black">
+                    <img src="{{ asset('assets/images/pub_logo_aqua.png') }}" alt="" height="50px">
+                    Find<strong>BAR</strong>
+                </h1>
+                {{ form_widget(formulario) }}
+                <div class="m-t-lg">
+                    <ul class="list-inline">
+                        <li>
+                            <button class="btn btn-success">
+                                Registrarse
+                            </button>
+                        </li>
+                        <li>
+                            <a href="#" class="btn btn-link">¿Olvidaste tu contraseña?</a>
+                        </li>
+                    </ul>
+                </div>
+                {{ form_end(formulario) }}
+        </div>
     </div>
 
-    {{ form_end(formulario) }}
-    <div class="clearfix"></div>
+    {#<div class="col-md-12 col-sm-12 col-lg-12 mt60">#}
+        {#{{ form_start(formulario, {'enctype':'multipart/form-data'}) }}#}
+        {#{{ form_widget(formulario) }}#}
+        {#<div class="col-lg-6 col-sm-12"></div>#}
+        {#<div class="col-lg-6 col-sm-12">#}
+            {#<a href="{{ path('perfil_usuario') }}" class="btn btn-primary">#}
+                {#<i class="fa fa-long-arrow-left"></i>#}
+                {#Volver#}
+            {#</a>#}
+            {#<button class="btn btn-success">#}
+                {#<i class="fa fa-save"></i>#}
+                {#Registrarse#}
+            {#</button>#}
+        {#</div>#}
+
+        {#{{ form_end(formulario) }}#}
+    {#</div>#}
+    {#<div class="clearfix"></div>#}
     {#<div class="main-content">#}
 
         {#<!-- You only need this form and the form-register.css -->#}
