@@ -69,11 +69,14 @@ class SecurityController extends Controller
                     if($usuario->getToken() && $usuario->getTokenValidity() > new \Datetime()){
                         return $this->redirectToRoute('entrar');
                     }else{
+                        // guardar token
                         $token = bin2hex(random_bytes(16));
                         $usuario->setToken($token);
                         $validity = new \DateTime();
                         $validity->add(new \DateInterval('PT'.$expire.'M'));
                         $usuario->setTokenValidity($validity);
+
+                        //Enviar correo
                         $message = \Swift_Message::newInstance()
                             ->setSubject('Completa tu registro en FindBAR!')
                             ->setFrom($this->getParameter('mailer_user'))
@@ -82,10 +85,10 @@ class SecurityController extends Controller
                                 $this->renderView('security/confirmaEmail.html.twig',[
                                     'usuario' => $usuario,
                                     'token' => $token
-                                ])
+                                ]), 'text/html'
                             );
                         $this->get('mailer')->send($message);
-                        // guardar token
+
                         $this->get('doctrine')->getManager()->flush();                    }
                     $this->addFlash('estado', 'Estás a un paso de completar tu registro. Revisa tu email y confirma tu cuenta');
                     return $this->redirectToRoute("entrar");
@@ -113,7 +116,7 @@ class SecurityController extends Controller
          * @var Usuario|null
          */
         if ($usuario->getToken() == $token && $usuario->getTokenValidity() > new \DateTime()) {
-            $form = $this->createForm('AppBundle\Form\NewPassType');
+            $form = $this->createForm('AppBundle\Form\Type\NewPassType');
             $form->handleRequest($request);
             $error = '';
             if ($form->isSubmitted() && $form->isValid()) {
@@ -139,5 +142,62 @@ class SecurityController extends Controller
                 'error' => $error
             ]
         );
+    }
+
+    /**
+     * @Route("/restaurar", name="restaurar_usuario", methods={"GET", "POST"})
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
+    public function resetAction(Request $request){
+        $form = $this->createForm('AppBundle\Form\ResetEmailType');
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $email = $form->get('email')->getData();
+            $usuario = $this->getDoctrine()->getManager()->getRepository('AppBundle:Usuario')->findOneBy(['email' => $email]);
+            if($usuario === null){
+                $this->addFlash('error','El email introducido no pertenece a ningún usuario registrado en esta aplicación');
+                return $this->redirectToRoute('restaurar_usuario');
+            }else{
+                return $this->redirectToRoute('restaurar_usuario_pass',['usuario'=> $usuario->getId()]);
+            }
+        }
+        return $this->render(
+            ':security:introduceEmail.twig', [
+                'form' => $form->createView(),
+            ]
+        );
+    }
+    /**
+     * @Route("/restaurar/{usuario}", name="restaurar_usuario_pass", methods={"GET", "POST"})
+     * @param Request $request
+     * @param Usuario $usuario
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
+    public function resetPassAction(Request $request, Usuario $usuario){
+        $expire = 30;
+        if($usuario->getToken() && $usuario->getTokenValidity() > new \Datetime()){
+            return $this->redirectToRoute('entrar');
+        }else{
+            $token = bin2hex(random_bytes(16));
+            $usuario->setToken($token);
+            $validity = new \DateTime();
+            $validity->add(new \DateInterval('PT'.$expire.'M'));
+            $usuario->setTokenValidity($validity);
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Completa tu registro en PickmeUP!')
+                ->setFrom($this->getParameter('mailer_user'))
+                ->setTo($usuario->getEmail())
+                ->setBody(
+                    $this->renderView('security/confirmaEmail.html.twig',[
+                        'usuario' => $usuario,
+                        'token' => $token
+                    ])
+                );
+            $this->get('mailer')->send($message);
+            // guardar token
+            $this->get('doctrine')->getManager()->flush();                    }
+        $this->addFlash('estado', 'Se han enviado instrucciones para la restauración de su contraseña al email indicado');
+        return $this->redirectToRoute("entrar");
     }
 }
