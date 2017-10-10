@@ -1,4 +1,10 @@
 ﻿$(document).ready(function () {
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove();
+        });
+    }, 4000);
+
     if($('.datatable-1').length>0){
         $('.datatable-1').dataTable();
         $('.dataTables_paginate').addClass('btn-group datatable-pagination');

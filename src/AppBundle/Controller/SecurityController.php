@@ -89,7 +89,8 @@ class SecurityController extends Controller
                             );
                         $this->get('mailer')->send($message);
 
-                        $this->get('doctrine')->getManager()->flush();                    }
+                        $this->get('doctrine')->getManager()->flush();
+                    }
                     $this->addFlash('estado', 'Estás a un paso de completar tu registro. Revisa tu email y confirma tu cuenta');
                     return $this->redirectToRoute("entrar");
                 }else{
