@@ -24,18 +24,18 @@ security:
             security: false
 
         login:
-            pattern:  ^/(entrar|restablecer)
+            pattern:  ^/(entrar|restaurar)
             security: false
 
         main:
             anonymous: ~
             provider: user_db_provider
             form_login:
-                login_path: entrar
-                check_path: comprobar
+                login_path: /entrar
+                check_path: /comprobar
             logout:
-                path: salir
-                target: entrar
+                path: /salir
+                target: /entrar
 
                 # activate different ways to authenticate
 
