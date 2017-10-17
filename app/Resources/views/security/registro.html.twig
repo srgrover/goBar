@@ -1,163 +1,118 @@
 {% extends 'layout.html.twig' %}
 
+{% block title %}Registrarse | d'Cañas{% endblock %}
+
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/css/form-register.css') }}">
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/checkboxes.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+    <style>
+        .form-horizontal .form-group{
+            margin-bottom: 0 !important;
+        }
+    </style>
 {% endblock %}
 
-{% block navbar%}
-{% endblock %}
+{% block navbar %}{% endblock %}
 
 {% block content %}
-    <div class="signup__container">
-        <div class="container__child signup__thumbnail">
-            <div class="thumbnail__logo">
-                <h1 class="logo__text">
-                    <img src="{{ asset('assets/images/pub_logo_white.png') }}" alt="" height="30px">
-                    Find<strong>BAR</strong>
-                </h1>
-            </div>
-            <div class="thumbnail__content text-center">
-                <h1 class="heading--primary">Bienvenido a Find<strong>BAR</strong></h1>
-                <h4 class="heading--secondary">¿Quieres unirte a nuestra aplicación?</h4>
-            </div>
-
-            <div class="thumbnail__content text-center">
-                <h6 class="heading--primary">¿Ya tienes una cuenta? <a href="#" class="btn btn-link">Inicia sesión</a></h6>
-
-            </div>
-
-            <div class="thumbnail__links">
-                <ul class="list-inline m-b-0 text-center">
-                    <li>
-                        <a href="http://alexdevero.com/" target="_blank">
-                            Inicio
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.behance.net/alexdevero" target="_blank">
-                            Sobre nosotros
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/alexdevero" target="_blank">
-                            Contacto
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/alexdevero" target="_blank">
-                            Uso
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="signup__overlay"></div>
-        </div>
-        <div class="container__child signup__form">
+    <section>
+        <div class="container">
+            <h1 style="text-align: center;">
+                <a href="{{ path('inicio') }}" style="font-family: 'Satisfy', cursive; letter-spacing: 2px; font-size: 60px; color: white; text-decoration: none;">
+                    <strong>
+                        <i>d'Cañas</i>
+                    </strong>
+                </a>
+            </h1>
+            <!-- #region Registration Form -->
+            <div class="registration-form-section">
                 {{ form_start(formulario, {'enctype':'multipart/form-data'}) }}
-                <h1 class="logo__text__black">
-                    <img src="{{ asset('assets/images/pub_logo_aqua.png') }}" alt="" height="50px">
-                    Find<strong>BAR</strong>
-                </h1>
-                {{ form_widget(formulario) }}
-                <div class="m-t-lg">
-                    <ul class="list-inline">
-                        <li>
-                            <button class="btn btn-success">
-                                Registrarse
-                            </button>
-                        </li>
-                        <li>
-                            <a href="#" class="btn btn-link">¿Olvidaste tu contraseña?</a>
-                        </li>
-                    </ul>
-                </div>
+                    <div class="section-title reg-header" data-animation="fadeInDown">
+                        <h3>
+                            Obtén una cuenta GRATIS
+                        </h3>
+                    </div>
+                    <div class="clearfix">
+                        <div class="col-sm-6 registration-left-section" data-animation="fadeInUp">
+                            <div class="reg-content">
+                                <div class="textbox-wrap focused">
+                                    <div class="input-group">
+                                        <span class="input-group-addon "><i class="icon-user icon-color"></i></span>
+                                        {{ form_row(formulario.nombre) }}
+                                    </div>
+                                </div>
+                                <div class="textbox-wrap">
+                                    <div class="input-group">
+                                        <span class="input-group-addon "><i class="icon-user icon-color"></i></span>
+                                        {{ form_row(formulario.apellidos) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 registration-right-section" data-animation="fadeInUp">
+                            <div class="reg-content">
+                                <div class="textbox-wrap">
+                                    <div class="input-group">
+                                        <span class="input-group-addon "><i class="icon-user icon-color"></i></span>
+                                        {{ form_row(formulario.email) }}
+                                    </div>
+                                </div>
+                                <div class="textbox-wrap">
+                                    <div class="input-group">
+                                        <span class="input-group-addon "><i class="icon-key icon-color"></i></span>
+                                        {{ form_row(formulario.fechaNacimiento) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="registration-form-action clearfix" data-animation="fadeInUp" data-animation-delay=".15s" style="animation-delay: 0.15s;">
+                        <a href="{{ path('entrar') }}" class="btn btn-link pull-left">
+                            <i class="icon-chevron-left"></i> Ir al Login
+                        </a>
+                        <button type="submit" class="btn btn-info pull-right green-btn ">
+                            Registrarse
+                            <i class="icon-chevron-right"></i>
+                        </button>
+                    </div>
                 {{ form_end(formulario) }}
+            </div>
         </div>
-    </div>
+    </section>
 
-    {#<div class="col-md-12 col-sm-12 col-lg-12 mt60">#}
-        {#{{ form_start(formulario, {'enctype':'multipart/form-data'}) }}#}
-        {#{{ form_widget(formulario) }}#}
-        {#<div class="col-lg-6 col-sm-12"></div>#}
-        {#<div class="col-lg-6 col-sm-12">#}
-            {#<a href="{{ path('perfil_usuario') }}" class="btn btn-primary">#}
-                {#<i class="fa fa-long-arrow-left"></i>#}
-                {#Volver#}
-            {#</a>#}
-            {#<button class="btn btn-success">#}
-                {#<i class="fa fa-save"></i>#}
-                {#Registrarse#}
-            {#</button>#}
-        {#</div>#}
-
-        {#{{ form_end(formulario) }}#}
-    {#</div>#}
-    {#<div class="clearfix"></div>#}
-    {#<div class="main-content">#}
-
-        {#<!-- You only need this form and the form-register.css -->#}
-
-        {#<form class="form-register" method="post" action="#">#}
-
-            {#<div class="form-register-with-email">#}
-
-                {#<div class="form-white-background">#}
-
-                    {#<div class="form-title-row">#}
-                        {#<h1>Create an account</h1>#}
-                    {#</div>#}
-
-                    {#<div class="form-row">#}
-                        {#<label>#}
-                            {#<span>Name</span>#}
-                            {#<input type="text" name="name">#}
-                        {#</label>#}
-                    {#</div>#}
-
-                    {#<div class="form-row">#}
-                        {#<label>#}
-                            {#<span>Email</span>#}
-                            {#<input type="email" name="email">#}
-                        {#</label>#}
-                    {#</div>#}
-
-                    {#<div class="form-row">#}
-                        {#<label>#}
-                            {#<span>Password</span>#}
-                            {#<input type="password" name="password">#}
-                        {#</label>#}
-                    {#</div>#}
-
-                    {#<div class="form-row">#}
-                        {#<label class="form-checkbox">#}
-                            {#<input type="checkbox" name="checkbox" checked>#}
-                            {#<span>I agree to the <a href="#">terms and conditions</a></span>#}
-                        {#</label>#}
-                    {#</div>#}
-
-                    {#<div class="form-row">#}
-                        {#<button type="submit">Register</button>#}
-                    {#</div>#}
-
-                {#</div>#}
-
-                {#<a href="#" class="form-log-in-with-existing">Already have an account? Login here &rarr;</a>#}
-
-            {#</div>#}
-
-            {#<div class="form-sign-in-with-social">#}
-
-                {#<div class="form-row form-title-row">#}
-                    {#<span class="form-title">Sign in with</span>#}
-                {#</div>#}
-
-                {#<a href="#" class="form-google-button">Google</a>#}
-                {#<a href="#" class="form-facebook-button">Facebook</a>#}
-                {#<a href="#" class="form-twitter-button">Twitter</a>#}
-
-            {#</div>#}
-
-        {#</form>#}
-
-    {#</div>#}
 {% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(function () {
+            $(".form-control").focus(function () {
+                $(this).closest(".textbox-wrap").addClass("focused");
+            }).blur(function () {
+                $(this).closest(".textbox-wrap").removeClass("focused");
+            });
+        });
+    </script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

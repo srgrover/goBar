@@ -14,19 +14,32 @@ class RegisterType extends AbstractType
     {
         $builder
             ->add('nombre', null, [
-                'label' => 'Nombre',
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Nombre',
+                ],
                 'required' => true
             ])
             ->add('apellidos', null, [
-                'label' => 'Apellidos',
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Apellidos',
+                ],
                 'required' => true
             ])
             ->add('email', null, [
-                'label' => 'Correo electrónico',
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Correo electrónico',
+                ],
                 'required' => true
             ])
             ->add('fechaNacimiento', null, [
-                'label' => 'Nacimiento',
+                'label' => false,
+                'years' => range(1930,Date('Y')-18),
+                'placeholder' => [
+                    'day' => 'Día', 'month' => 'Mes', 'year' => 'Año'
+                ],
                 'required' => true
             ]);
     }
