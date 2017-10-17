@@ -11,7 +11,7 @@ class IndexController extends Controller
      /**
      * @Route("/inicio", name="inicio")
      */
-    public function entrarAction(){
+    public function inicioAction(){
         return $this->render(':default:inicio.html.twig', [
 
         ]);

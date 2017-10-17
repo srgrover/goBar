@@ -7,25 +7,7 @@
 {% endblock %}
 {% block navbar %}{% endblock %}
 {% block content %}
-    {#<form method="post" action="{{ path('login_check') }}" role="form">#}
-        {#<div class="form-group">#}
-            {#<label for="email">Email</label>#}
-            {#<input type="text" name="_username" id="email" required="" class="form-control" tabindex="1"#}
-                   {#autocorrect="off" autocapitalize="none" value="{{ last_username | default('') }}"#}
-                   {#{% if not last_username %}autofocus="" {% endif %}>#}
-        {#</div>#}
-        {#<div class="form-group">#}
-            {#<div class="pull-right"><a href="#" tabindex="4">Olvidaste tu contraseña</a></div>#}
-            {#<label for="password">Contraseña</label>#}
-            {#<input type="password" name="_password" id="password" required="" class="form-control" tabindex="2"#}
-                   {#{% if last_username %}autofocus="" {% endif %}>#}
-        {#</div>#}
-        {#<div class="form-group">#}
-            {#<button type="submit" name="login" class="btn btn-info col-xs-12" tabindex="4">Entrar</button>#}
-        {#</div>#}
-    {#</form>#}
-
-    <section class="colorBg1 colorBg active" id="demo1" data-panel="first" style="top:0">
+    <section class="active" id="demo1" data-panel="first" style="top:0">
         <div class=" container">
             <div class="login-form-section">
                 <div class="login-content  animated bounceIn" data-animation="bounceIn">
