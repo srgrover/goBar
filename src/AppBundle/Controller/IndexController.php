@@ -16,4 +16,13 @@ class IndexController extends Controller
 
         ]);
     }
+
+    /**
+     * @Route("/activacion/informacion", name="info_activacion")
+     */
+    public function infoActivacionAction(){
+        return $this->render('information/infoActivacion.html.twig', [
+
+        ]);
+    }
 }

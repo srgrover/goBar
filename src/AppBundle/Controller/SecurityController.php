@@ -91,8 +91,7 @@ class SecurityController extends Controller
 
                         $this->get('doctrine')->getManager()->flush();
                     }
-                    $this->addFlash('estado', 'Estás a un paso de completar tu registro. Revisa tu email y confirma tu cuenta');
-                    return $this->redirectToRoute("entrar");
+                    return $this->redirectToRoute("info_activacion");
                 }else{
                     $this->addFlash('error', 'Hubo algún problema con el registro de tu usuario');
                 }

@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+
+{% block title%}Gracias por tu registro | d'Cañas{% endblock %}
+
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
+{% endblock %}
+
+{% block navbar %}{% endblock %}
+
+{% block content %}
+    <h1 style="text-align: center;">
+        <a href="{{ path('inicio') }}" style="font-family: 'Satisfy', cursive; letter-spacing: 2px; font-size: 60px; color: white; text-decoration: none;">
+            <strong>
+                <i>d'Cañas</i>
+            </strong>
+        </a>
+    </h1>
+    <div class="col-lg-3 col-md-3 col-sm-12"></div>
+    <div class="panel panel-success col-lg-6 col-md-6 col-sm-12" style="padding: 0;">
+        <div class="panel-heading">
+            <h2 class="text-center">¡Gracias por tu registro en d'Cañas!</h2>
+        </div>
+        <div class="panel-body">
+            <h4 class="text-center">
+                Gracias por registrarte en nuestra plataforma. Ahora solo te queda un paso para poder iniciar sesión en nuestra web.
+            </h4>
+            <h4 class="text-center">
+                Hemos enviado un correo al email con el que te registraste. Sigue las instrucciones que en él se te indican y confirma tu cuenta creando una contraseña para poder acceder.
+            </h4>
+        </div>
+        <div class="panel-footer text-center">
+            <a href="{{ path('entrar') }}" class="btn btn-primary">
+                Entrar en la web
+                <i class="fa fa-sign-in"></i>
+            </a>
+            o
+            <a href="{{ path('inicio') }}" class="btn-link">Ir al inicio</a>
+        </div>
+    </div>
+{% endblock %}
+
