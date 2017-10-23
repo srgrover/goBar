@@ -1,27 +1,73 @@
 {% extends 'layout.html.twig' %}
 
+{% block title %}Activar cuenta | d'Cañas{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/jquery.datetimepicker.min.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
+    <style>
+        .form-horizontal .form-group{
+            margin-bottom: 0 !important;
+        }
+    </style>
+{% endblock %}
+
+{% block navbar %}{% endblock %}
+
 {% block content %}
-    <div class="col-lg-12 mt-2"></div>
-    <div class="clearfix"></div>
-    <div class="col-lg-3"></div>
-    <div class="col-lg-6 box-default mt-5">
-        <div class="pull-right">
-            <a href="{{ path('entrar') }}" tabindex="3">
-                <i class="fa fa-long-arrow-left"></i>
-                Volver al login
-            </a>
+    <section>
+        <div class=" container">
+            <h1 style="text-align: center;">
+                <a href="{{ path('inicio') }}" style="font-family: 'Satisfy', cursive; letter-spacing: 2px; font-size: 60px; color: white; text-decoration: none;">
+                    <strong>
+                        <i>d'Cañas</i>
+                    </strong>
+                </a>
+            </h1>
+            <br>
+
+            <div class="forgot-password-section" data-animation="bounceInLeft">
+                <div class="section-title">
+                    <h3>Activa tu cuenta</h3>
+                </div>
+                <div class="forgot-content">
+                    {{ form_start(form) }}
+
+                        <div class="textbox-wrap">
+                            <div class="input-group" style="border: none">
+                                <span class="input-group-addon ">
+                                    <i class="icon-key icon-color"></i>
+                                </span>
+                                {{ form_row(form.newPassword) }}
+                            </div>
+                        </div>
+                        <div class="forget-form-action clearfix">
+                            <a class="btn btn-warning pull-left" href="{{ path('entrar') }}">
+                                <i class="icon-chevron-left"></i>
+                                Entrar
+                            </a>
+                            <button type="submit" class="btn btn-info pull-right">
+                                Confirmar
+                                <i class="icon-chevron-right"></i>
+                            </button>
+                        </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
         </div>
-        <div class="clearfix"></div>
-        <hr>
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <div class="form-group">
-            <button name="login" class="btn btn-info btn-block" tabindex="2">
-                <i class="fa fa-save"></i>
-                Guardar
-            </button>
-        </div>
-        {{ form_end(form) }}
-    </div>
-    <div class="col-lg-3"></div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        $(function () {
+            $(".form-control").focus(function () {
+                $(this).closest(".textbox-wrap").addClass("focused");
+            }).blur(function () {
+                $(this).closest(".textbox-wrap").removeClass("focused");
+            });
+        });
+    </script>
 {% endblock %}

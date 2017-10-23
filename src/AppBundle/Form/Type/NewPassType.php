@@ -19,7 +19,7 @@ class NewPassType extends AbstractType
                 'mapped' => false,
                 'invalid_message' => 'Las contraseñas no coinciden',
                 'first_options' => [
-                    'label' => 'Nueva Contraseña',
+                    'label' => false,
                     'constraints' => [
                         new Length([
                             'min' => 8,
@@ -27,11 +27,19 @@ class NewPassType extends AbstractType
                         ]),
                         new NotNull()
                     ],
-                    'attr' => ['tabindex' => 2, 'autofocus' => '']
+                    'attr' => [
+                        'placeholder' => 'Nueva contraseña',
+                        'tabindex' => 2,
+                        'autofocus' => '',
+                        'style' => 'border-bottom: 1px solid #e0e0e0',
+                    ]
                 ],
                 'second_options' => [
-                    'label' => 'Repite la contraseña',
-                    'attr' => ['tabindex' => 3]
+                    'label' => false,
+                    'attr' => [
+                        'placeholder' => 'Repite la contraseña',
+                        'tabindex' => 3,
+                    ]
                 ]
             ]);
     }

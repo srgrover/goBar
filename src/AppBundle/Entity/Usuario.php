@@ -113,17 +113,17 @@ class Usuario implements UserInterface, \Serializable {
      * )
      */
     protected $provincia;
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     *
-     * @var string
-     * @Assert\Regex(
-     *     pattern="/\d/",
-     *     match=false,
-     *     message="El país no puede contener un dígito"
-     * )
-     */
-    protected $pais;
+//    /**
+//     * @ORM\Column(type="string", nullable=true)
+//     *
+//     * @var string
+//     * @Assert\Regex(
+//     *     pattern="/\d/",
+//     *     match=false,
+//     *     message="El país no puede contener un dígito"
+//     * )
+//     */
+//    protected $pais;
 //    /**
 //     * @ORM\Column(type="string", length=9, nullable=false)
 //     * @Assert\Length(
@@ -150,12 +150,12 @@ class Usuario implements UserInterface, \Serializable {
      * @var string
      */
     protected $imagenPerfil;
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     *
-     * @var string
-     */
-    protected $imagenFondo;
+//    /**
+//     * @ORM\Column(type="string", nullable=true)
+//     *
+//     * @var string
+//     */
+//    protected $imagenFondo;
     /**
      * @ORM\Column(type="boolean", nullable=false)
      *
@@ -362,20 +362,20 @@ class Usuario implements UserInterface, \Serializable {
     {
         $this->provincia = $provincia;
     }
-    /**
-     * @return string
-     */
-    public function getPais()
-    {
-        return $this->pais;
-    }
-    /**
-     * @param string $pais
-     */
-    public function setPais($pais)
-    {
-        $this->pais = $pais;
-    }
+//    /**
+//     * @return string
+//     */
+//    public function getPais()
+//    {
+//        return $this->pais;
+//    }
+//    /**
+//     * @param string $pais
+//     */
+//    public function setPais($pais)
+//    {
+//        $this->pais = $pais;
+//    }
 //    /**
 //     * @return string
 //     */
@@ -418,20 +418,20 @@ class Usuario implements UserInterface, \Serializable {
     {
         $this->imagenPerfil = $imagenPerfil;
     }
-    /**
-     * @return string
-     */
-    public function getImagenFondo()
-    {
-        return $this->imagenFondo;
-    }
-    /**
-     * @param string $imagenFondo
-     */
-    public function setImagenFondo($imagenFondo)
-    {
-        $this->imagenFondo = $imagenFondo;
-    }
+//    /**
+//     * @return string
+//     */
+//    public function getImagenFondo()
+//    {
+//        return $this->imagenFondo;
+//    }
+//    /**
+//     * @param string $imagenFondo
+//     */
+//    public function setImagenFondo($imagenFondo)
+//    {
+//        $this->imagenFondo = $imagenFondo;
+//    }
     /**
      * @return boolean
      */

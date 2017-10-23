@@ -4,10 +4,14 @@ namespace AppBundle\Form\Type;
 
 use AppBundle\Entity\Usuario;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class RegisterType extends AbstractType
+class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -33,15 +37,45 @@ class RegisterType extends AbstractType
                 ],
                 'required' => true
             ])
-            ->add('fechaNacimiento', null, [
-                'label' => false,
+            ->add('fechaNacimiento', DateType::class, [
+                'label' => 'Fecha de nacimiento',
                 'required' => true,
-                'widget' => 'single_text',
-                'attr' => [
-                    'class' => 'form-fecha',
-                    'placeholder'=>'aaaa-mm-dd'
+                'years' => range(1930, Date('Y') - 18),
+                'placeholder' => [
+                    'day' => 'Día', 'month' => 'Mes', 'year' => 'Año'
                 ],
-                'format' => 'Y-M-d',
+                'attr' => [
+                    'class' => 'form-date'
+                ]
+            ])
+            ->add('ciudad', null, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Ciudad',
+                ],
+                'required' => false
+            ])
+            ->add('provincia', null, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Provincia',
+                ],
+                'required' => false
+            ])
+            ->add('descripcion', TextareaType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Sobre mí',
+                ],
+                'required' => false
+            ])
+            ->add('imagenPerfil', FileType::class, [
+                'label' => 'Imagen de perfil',
+                'required' => false,
+                'data_class' => null,
+                'attr' => [
+                    'class' => 'form-imagenPerfil'
+                ]
             ]);
     }
 
