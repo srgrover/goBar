@@ -2,11 +2,6 @@
 
 {% block title %}Perfil | d'Cañas{% endblock %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('assets/css/checkboxes.css') }}">
-{% endblock %}
-
 {% block content %}
     <div class="container bootstrap snippets">
 <div class="row">
@@ -16,11 +11,13 @@
                 <div class="inner-all">
                     <ul class="list-unstyled">
                         <li class="text-center">
-                            {% if app.user.imagenPerfil == null %}
-                                <img src="{{ asset('assets/images/default_user.png') }}" data-no-retina="" class="img-rounded img-responsive img-bordered-primary" alt="avatar" />
-                            {% else %}
-                                <img src="{{ asset('uploads/users/'~app.user.imagenPerfil) }}" data-no-retina="" class="img-rounded img-responsive img-bordered-primary" alt="avatar" />
-                            {% endif %}
+                            <div class="avatar-perfil">
+                                {% if app.user.imagenPerfil == null %}
+                                    <img src="{{ asset('assets/images/default_user.png') }}" alt="avatar" />
+                                {% else %}
+                                    <img src="{{ asset('uploads/users/img/profile/'~app.user.imagenPerfil) }}" alt="avatar" />
+                                {% endif %}
+                            </div>
                         </li>
                         <li class="text-center">
                             <h4 class="text-capitalize">
@@ -32,7 +29,7 @@
                         </li>
                         <li class="text-center">
                             <div class="btn-group">
-                                <a href="" class="btn btn-default">
+                                <a href="{{ path('editar_perfil') }}" class="btn btn-default">
                                     <i class="fa fa-cog pull-right"></i>
                                     Editar perfil
                                 </a>

@@ -80,6 +80,23 @@ a.navbar-brand:hover {
 	text-align: center;
 }
 
+.avatar-perfil{
+	display: inline;
+	border-radius: 3px;
+	width: 250px;
+	height: 250px;
+	overflow: hidden;
+	float: right;
+	margin-left: 12px;
+	margin-top: -10px;
+	margin-bottom: 15px;
+}
+
+.avatar-perfil img{
+	height: 100%;
+	text-align: center;
+}
+
 .alert-flash{
 	margin-top: 50px;
 	font-size: larger;

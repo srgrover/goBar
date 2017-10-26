@@ -30,23 +30,15 @@ class UserType extends AbstractType
                 ],
                 'required' => true
             ])
-            ->add('email', null, [
+            ->add('fechaNacimiento', null, [
                 'label' => false,
-                'attr' => [
-                    'placeholder' => 'Correo electrónico',
-                ],
-                'required' => true
-            ])
-            ->add('fechaNacimiento', DateType::class, [
-                'label' => 'Fecha de nacimiento',
                 'required' => true,
-                'years' => range(1930, Date('Y') - 18),
-                'placeholder' => [
-                    'day' => 'Día', 'month' => 'Mes', 'year' => 'Año'
-                ],
+                'widget' => 'single_text',
                 'attr' => [
-                    'class' => 'form-date'
-                ]
+                    'class' => 'form-fecha',
+                    'placeholder'=>'aaaa-mm-dd'
+                ],
+                'format' => 'Y-M-d',
             ])
             ->add('ciudad', null, [
                 'label' => false,
@@ -70,12 +62,10 @@ class UserType extends AbstractType
                 'required' => false
             ])
             ->add('imagenPerfil', FileType::class, [
-                'label' => 'Imagen de perfil',
+                'label' => false,
                 'required' => false,
                 'data_class' => null,
-                'attr' => [
-                    'class' => 'form-imagenPerfil'
-                ]
+
             ]);
     }
 
