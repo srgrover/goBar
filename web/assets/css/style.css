@@ -50,9 +50,30 @@ a.navbar-brand:hover {
 	background-color: #009AB2 !important;
 }
 
+.navbar-inverse{
+	background-color: #1b788a !important;
+	border: none;
+}
+
+.navbar-inverse a{
+	color: #FFFFFF !important;
+}
+.ddl-menu a{
+	color: #444444 !important;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover{
+	background-color: #009abc;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+	color: #FFFFFF;
+	background-color: #00abc2;
+}
+
 .activado {
 	color: #FFFFFF;
-	background-color: #009AB2;
+	background-color: #009abc;
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
@@ -61,6 +82,10 @@ a.navbar-brand:hover {
 
 .navbar-default .navbar-nav>li>a{
 	color: #FFFFFF;
+}
+
+.bt-salir:hover{
+	background-color: #F44336 !important;
 }
 
 /* PÁGINA PRINCIPAL */
@@ -230,11 +255,34 @@ a.navbar-brand:hover {
 }
 
 /* BUSQUEDA */
-.box-busqueda{
-	background-color: #00BFA5;
-	background: url(http://lichfieldsfurniture.co.uk/wp-content/uploads/2016/10/Cafe-background-e1477156168433.jpg) center center;
-	background-size: cover;
-	height: 150px;
+.btn-search{
+	border-radius: 0 3px 3px 0;
+	border: 0;
+	background: #009AB2;
+	color: #FFFFFF;
+	transition: all;
+	transition-duration: 0.3s;
+}
+
+.input-search::placeholder {
+	color: #DDDDDD;
+}
+
+.input-search{
+	width: 94% !important;
+	text-align: center;
+	border: 0;
+	color: #FFFFFF;
+	height: 32px;
+	background: #009AB2;
+	transition: all;
+	transition-duration: 0.05s;
+}
+
+
+.input-search:focus, .input-search:focus + .btn-search{
+	box-shadow: none;
+	height: 35px;
 }
 
 .box-home{
