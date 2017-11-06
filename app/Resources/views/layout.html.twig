@@ -52,9 +52,20 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="bt-salir" href="{{ path('salir') }}">
-                                    Salir
-                                </a>
+                                <div class="button-container button-slide-vertical">
+                                    <div class="slider-vertical">
+                                        <a href="{{ path('salir') }}" class="button">
+                                            <i class="fa fa-power-off front"></i>
+                                            <i class="back">
+                                                <i class="fa fa-sign-out icon-salir"></i>
+                                                Salir
+                                            </i>
+                                        </a>
+                                    </div>
+                                </div>
+                                {#<a class="btn-salir" href="{{ path('salir') }}" data-hover="Salir">#}
+                                    {#<div><i class="fa fa-power-off"></i></div>#}
+                                {#</a>#}
                             </li>
                         {% else %}
                             <li>

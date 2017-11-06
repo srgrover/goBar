@@ -1,6 +1,11 @@
 /* Animation.css*/
 @import url(https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css);
 
+*{
+	transition: all;
+	transition-duration: 0.1s;
+}
+
 body{
 	font-family: 'Roboto', 'PT Sans', sans-serif;
 	font-weight: 300;
@@ -13,6 +18,11 @@ body{
 	width: 100%;
 }
 
+@media (min-width: 768px){
+	.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+		margin-left: 0;
+	}
+}
 .navbar-brand {
 	background-color: transparent;
 }
@@ -62,11 +72,16 @@ a.navbar-brand:hover {
 	color: #444444 !important;
 }
 
-.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover{
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse a:hover, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover{
 	background-color: #009abc;
 }
 
-.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover{ /* Hover enlace nav inverse */
+	color: #FFFFFF;
+	background-color: #00abc2;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{ /* Hover enlace nav default */
 	color: #FFFFFF;
 	background-color: #00abc2;
 }
@@ -84,9 +99,155 @@ a.navbar-brand:hover {
 	color: #FFFFFF;
 }
 
-.bt-salir:hover{
+.btn-salir{
+	border-left: 1px solid #009abc;
+}
+
+.btn-salir:hover{
 	background-color: #F44336 !important;
 }
+
+
+/* BOTON SALIR ANIMATION */
+@media screen and (max-width: 875px) {
+	.button-container {
+		margin: 10px 10px !important;
+	}
+
+	h2 {
+		font-size: 15vw !important;
+	}
+}
+
+.button-container {
+	display: inline-block;
+	cursor: pointer;
+	font-weight: 400;
+	letter-spacing: 2px;
+	height: 50px;
+	width: 80px;
+
+}
+.button-container .flipper {
+	transition: all .5s ease-in-out;
+	-webkit-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	position: relative;
+}
+.button-container .button {
+	height: 50px;
+	width: 80px;
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.button-container .button i.fa {
+	color: white;
+	font-size: 20px;
+	margin: auto;
+	/*text-shadow: .5px 1px 2px #3c3c3c;*/
+}
+.button-container .button.front {
+	z-index: 10;
+}
+.button-container .button.back {
+	color: white;
+	font-size: 15px;
+}
+
+/*** Vertical Slide ***/
+.button-slide-vertical {
+	overflow: hidden;
+	height: 50px;
+}
+.button-slide-vertical .button {
+	background: red; /* For browsers that do not support gradients */
+	background: -webkit-radial-gradient(#D32F2F, #B71C1C); /* Safari 5.1 to 6.0 */
+	background: -o-radial-gradient(#D32F2F, #B71C1C); /* For Opera 11.6 to 12.0 */
+	background: -moz-radial-gradient(#D32F2F, #B71C1C); /* For Firefox 3.6 to 15 */
+	background: radial-gradient(#D32F2F, #B71C1C); /* Standard syntax (must be*/
+	overflow: hidden;
+	height: 50px;
+}
+.button-slide-vertical i {
+	position: relative;
+	margin: 0 !important;
+	top: 10px;
+	transition: all .2s ease-in-out;
+	opacity: 1;
+}
+.button-slide-vertical i.back {
+	color: white;
+	font-size: 15px;
+	letter-spacing: 1px;
+	transform: translateY(30px);
+	opacity: 0;
+	font-style: normal;
+}
+.button-slide-vertical:hover i.front {
+	transform: translateY(-30px);
+	opacity: 0;
+}
+.button-slide-vertical:hover i.back {
+	transform: translateY(-20px);
+	opacity: 1;
+}
+.icon-salir{
+	font-size: 15px !important;
+	top: 0 !important;
+}
+a.button{
+	text-decoration: none;
+	text-align: center;
+}
+
+/*.btn-salir:hover{*/
+	/*border-bottom: 1px solid #111;*/
+/*}*/
+/*.btn-salir:hover{*/
+	/*cursor: pointer*/
+/*}*/
+/*.btn-salir {*/
+	/*background: transparent;*/
+	/*outline: none;*/
+	/*position: relative;*/
+	/*overflow: hidden;*/
+	/*padding: 15px 50px;*/
+/*}*/
+
+/*!*button:before (attr data-hover)*!*/
+/*.btn-salir:hover:before{*/
+	/*opacity: 1; transform: translate(0,0);*/
+/*}*/
+/*.btn-salir:before{*/
+	/*content: attr(data-hover);*/
+	/*position: absolute;*/
+	/*top: 1.1em; left: 0;*/
+	/*width: 100%;*/
+	/*opacity: 0;*/
+	/*transform: translate(-100%,0);*/
+	/*transition: all .3s ease-in-out;*/
+/*}*/
+/*!*button div (button text before hover)*!*/
+/*.btn-salir:hover div{*/
+	/*opacity: 0;*/
+	/*padding-left: 7px;*/
+	/*transform: translate(100%,0)*/
+/*}*/
+/*.btn-salir div{*/
+	/*transition: all .3s ease-in-out;*/
+/*}*/
+
+
+
+
+
+
 
 /* PÁGINA PRINCIPAL */
 .avatar{
@@ -256,33 +417,42 @@ a.navbar-brand:hover {
 
 /* BUSQUEDA */
 .btn-search{
-	border-radius: 0 3px 3px 0;
+	border-radius: 0 5px 5px 0;
 	border: 0;
 	background: #009AB2;
 	color: #FFFFFF;
-	transition: all;
-	transition-duration: 0.3s;
+}
+
+.btn-search:hover{
+	background-color: #0089A1;
+	color: #FFFFFF;
+}
+
+.btn-search:focus, .btn-search:active{
+	background-color: #007890;
+	color: #FFFFFF;
 }
 
 .input-search::placeholder {
 	color: #DDDDDD;
 }
 
-.input-search{
+input.form-control.input-search{
 	width: 94% !important;
 	text-align: center;
 	border: 0;
 	color: #FFFFFF;
 	height: 32px;
 	background: #009AB2;
-	transition: all;
-	transition-duration: 0.05s;
+	border-radius: 5px 0 0 5px;
 }
 
 
-.input-search:focus, .input-search:focus + .btn-search{
+
+input.form-control.input-search:focus, input.form-control.input-search:focus + .btn-search{
 	box-shadow: none;
-	height: 35px;
+	height: 36px;
+	background: #0089A1;
 }
 
 .box-home{
